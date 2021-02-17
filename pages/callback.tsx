@@ -1,5 +1,6 @@
 import React from 'react';
 import {NextPageContext} from "next";
+import config from '../config.json'
 
 const Callback = () => {
     React.useEffect(() => {
@@ -16,6 +17,7 @@ const Callback = () => {
 
 export const getServerSideProps = (ctx: NextPageContext) => {
     console.log(ctx.query.code)
+    console.log(config)
     return {
         props: {}
     }
