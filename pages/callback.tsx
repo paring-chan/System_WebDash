@@ -1,6 +1,5 @@
 import React from 'react';
 import {NextPageContext} from "next";
-import fetch from "node-fetch";
 import axios from 'axios'
 import {DiscordTokenResult} from "../types";
 
