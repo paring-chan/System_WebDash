@@ -1,0 +1,20 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.11",
+    "@types/node": "^14.14.28",
+    "@types/webpack": "^4.41.26",
+    "concurrently": "^5.3.0",
+    "nodemon": "^2.0.7",
+    "typescript": "^4.1.5"
+  },
+  "scripts": {
+    "dev": "concurrently \"tsc -w\" \"nodemon dist\""
+  }
+}
