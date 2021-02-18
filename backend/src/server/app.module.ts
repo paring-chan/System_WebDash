@@ -1,7 +1,8 @@
 import { Module } from '@nestjs/common';
+import {ViewModule} from "./view/view.module";
 
 @Module({
-  imports: [],
+  imports: [ViewModule],
   controllers: [],
   providers: [],
 })
