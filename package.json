@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "bootstrap": "^5.0.0-beta2",
     "cookie": "^0.4.1",
     "next": "10.0.7",

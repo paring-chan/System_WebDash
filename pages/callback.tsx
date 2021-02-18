@@ -1,6 +1,7 @@
 import React from 'react';
 import {NextPageContext} from "next";
 import fetch from "node-fetch";
+import axios from 'axios'
 
 const Callback = () => {
     React.useEffect(() => {
@@ -23,14 +24,15 @@ export const getServerSideProps = async (ctx: NextPageContext) => {
         }
     }
 
-    const res = await fetch('https://discord.com/api/v8/oauth2/token', {
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: new URLSearchParams({
-            client_id: process.env.DISCORD_CLIENT_ID
-        })
-    })
+    const res = await axios.post('https://discord.com/api/v8/oauth2/token', new URLSearchParams({
+        client_id: process.env.DISCORD_CLIENT_ID,
+        client_secret: process.env.DISCORD_CLIENT_SECRET,
+        redirect_uri: process.env.DISCORD_CALLBACK_URI,
+        scope: 'identify email guilds',
+        code: code as string,
+        grant_type: 'authorization_code'
+    }))
+    // const access_token = (await res.json()).access_token
 
     return {
         props: {}

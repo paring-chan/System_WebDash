@@ -37,7 +37,7 @@ MyApp.getInitialProps = async ({ Component, ctx }: AppContext): Promise<AppIniti
   if (Component.getInitialProps) {
     pageProps = await Component.getInitialProps(ctx);
   }
-  const LoginUri = `https://discord.com/api/oauth2/authorize?client_id=${process.env.DISCORD_CLIENT_ID}&redirect_uri=${encodeURIComponent(process.env.DISCORD_CALLBACK_URI)}&response_type=code&scope=identify%20guilds%20email`
+  const LoginUri = `https://discord.com/api/oauth2/authorize?client_id=${process.env.DISCORD_CLIENT_ID}&redirect_uri=${encodeURIComponent(process.env.DISCORD_CALLBACK_URI)}&response_type=code&scope=identify%20guilds%20email&prompt=none`
 
   return { pageProps: {...pageProps, LoginUri} };
 }
