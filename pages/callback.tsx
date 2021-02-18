@@ -2,6 +2,7 @@ import React from 'react';
 import {NextPageContext} from "next";
 import fetch from "node-fetch";
 import axios from 'axios'
+import {DiscordTokenResult} from "../types";
 
 const Callback = () => {
     React.useEffect(() => {
@@ -24,7 +25,7 @@ export const getServerSideProps = async (ctx: NextPageContext) => {
         }
     }
 
-    const res = await axios.post('https://discord.com/api/v8/oauth2/token', new URLSearchParams({
+    const tokenResult = await axios.post('https://discord.com/api/v8/oauth2/token', new URLSearchParams({
         client_id: process.env.DISCORD_CLIENT_ID,
         client_secret: process.env.DISCORD_CLIENT_SECRET,
         redirect_uri: process.env.DISCORD_CALLBACK_URI,
@@ -33,6 +34,10 @@ export const getServerSideProps = async (ctx: NextPageContext) => {
         grant_type: 'authorization_code'
     }))
     // const access_token = (await res.json()).access_token
+
+    const tokenData = tokenResult.data as DiscordTokenResult
+
+
 
     return {
         props: {}
