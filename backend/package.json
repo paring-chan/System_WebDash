@@ -18,6 +18,7 @@
     "@types/webpack": "^4.41.26",
     "concurrently": "^5.3.0",
     "nodemon": "^2.0.7",
+    "prettier": "^2.2.1",
     "typescript": "^4.1.5"
   },
   "scripts": {

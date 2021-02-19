@@ -1,9 +1,9 @@
-import Router from "koa-router";
+import Router from 'koa-router'
 
 const router = new Router()
 
-router.get('/', ctx => {
-    ctx.body = {happy: 'hacking'}
+router.get('/', (ctx) => {
+  ctx.body = { happy: 'hacking' }
 })
 
 export default router
