@@ -10,13 +10,15 @@ const router = new Router()
 
 app.use(logger())
 
+router.use('/', routes.routes())
+
+
 app.use(async (ctx, next) => {
   try {
     await next()
     const status = ctx.status || 404
     if (status === 404) {
       ctx.throw(404)
-      router.use('/', routes.routes())
     }
   } catch (err) {
     ctx.status = ctx.status || 500
