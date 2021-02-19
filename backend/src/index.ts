@@ -24,7 +24,9 @@ app.use(async (ctx, next) => {
     }
 })
 
-app.use(json())
+app.use(json({
+    pretty: false
+}))
 
 
 router.use('/', routes.routes())
